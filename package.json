@@ -6,13 +6,13 @@
   "main": "./dist/main.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev concurrently -n=svelte,electron,electron-reloader -c=#ff3c00,blue,#1820c4 \"npm run svelte:dev\" \"npm run electron:dev\" \"npm run electron:watch\"",
-    "build": "npm run svelte:build && npm run electron:build && npm run electron:package",
+    "build": "rimraf dist && npm run svelte:build && npm run electron:build && npm run electron:package",
     "svelte:dev": "cd svelte && npm run dev",
     "svelte:build": "cd svelte && npm run build",
     "electron:dev": "npm run electron:build && electron ./dist/main.js",
     "electron:build": "tsc",
     "electron:watch": "tsc -w",
-    "electron:package": "electron-builder build --win --publish never --config build.config.json"
+    "electron:package": "rimraf out && electron-builder build --win --publish never --config build.config.json"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -24,6 +24,7 @@
     "electron": "^21.2.0",
     "electron-builder": "^23.6.0",
     "eslint": "^7.32.0",
+    "rimraf": "^3.0.2",
     "typescript": "^4.8.3"
   },
   "dependencies": {
