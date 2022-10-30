@@ -1,0 +1,18 @@
+{
+  "appId": "nl.egel-youtube-downloader.app",
+  "productName": "Egel YouTube Downloader",
+  "directories": {
+    "output": "out"
+  },
+  "win": {
+    "target": ["nsis"],
+    "icon": "icon.ico"
+  },
+  "nsis": {
+    "installerIcon": "icon.ico",
+    "uninstallerIcon": "icon.ico",
+    "uninstallDisplayName": "Egel YouTube Downloader",
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  }
+}

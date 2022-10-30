@@ -1,0 +1,43 @@
+{
+  "name": "egel-youtube-downloader",
+  "description": "An Electron version of the Egel YouTube downloader Web App",
+  "version": "1.0.0",
+  "author": "Niek Peters",
+  "main": "./dist/main.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev concurrently -n=svelte,electron,electron-reloader -c=#ff3c00,blue,#1820c4 \"npm run svelte:dev\" \"npm run electron:dev\" \"npm run electron:watch\"",
+    "build": "npm run svelte:build && npm run electron:build && npm run electron:package",
+    "svelte:dev": "cd svelte && npm run dev",
+    "svelte:build": "cd svelte && npm run build",
+    "electron:dev": "npm run electron:build && electron ./dist/main.js",
+    "electron:build": "tsc",
+    "electron:watch": "tsc -w",
+    "electron:package": "electron-builder build --win --publish never --config build.config.json"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "concurrently": "^7.5.0",
+    "cross-env": "^7.0.3",
+    "electron": "^21.2.0",
+    "electron-builder": "^23.6.0",
+    "eslint": "^7.32.0",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "downloads-folder": "^3.0.3",
+    "electron-reloader": "^1.2.3",
+    "electron-serve": "^1.1.0",
+    "electron-window-state": "^5.0.3",
+    "express": "^4.18.2",
+    "ffmpeg-static": "^5.1.0",
+    "ytdl-core": "^4.11.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrValk/egel-youtube-downloader.git"
+  }
+}

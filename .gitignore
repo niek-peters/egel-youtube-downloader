@@ -1,0 +1,11 @@
+node_modules
+dist
+out
+
+svelte/.DS_Store
+svelte/node_modules
+svelte/.svelte-kit
+svelte/package
+svelte/.env
+svelte/.env.*
+svelte/!.env.example
